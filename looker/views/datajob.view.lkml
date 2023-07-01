@@ -78,4 +78,10 @@ view: datajob {
     type: count
     drill_fields: [id, exp_name, location_name, job_name]
   }
+
+  measure: tmp_count {
+    type: count_distinct
+    drill_fields: [id]
+  }
+
 }
