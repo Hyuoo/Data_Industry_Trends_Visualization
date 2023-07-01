@@ -1,0 +1,14 @@
+[
+    {"name": "date", "type": "TIMESTAMP", "mode": "REQUIRED"},
+    {"name": "info", "type": "INTEGER", "mode": "REQUIRED"},
+    {"name": "ai", "type": "INTEGER", "mode": "REQUIRED"},
+    {"name": "bigdata", "type": "INTEGER", "mode": "REQUIRED"},
+    {"name": "boj", "type": "INTEGER", "mode": "REQUIRED"},
+    {"name": "bootcamp", "type": "INTEGER", "mode": "REQUIRED"},
+    {"name": "db", "type": "INTEGER", "mode": "REQUIRED"},
+    {"name": "dm", "type": "INTEGER", "mode": "REQUIRED"},
+    {"name": "clustering", "type": "INTEGER", "mode": "REQUIRED"},
+    {"name": "de", "type": "INTEGER", "mode": "REQUIRED"},
+    {"name": "da", "type": "INTEGER", "mode": "REQUIRED"},
+    {"name": "ds", "type": "INTEGER", "mode": "REQUIRED"}
+]

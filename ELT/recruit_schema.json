@@ -1,0 +1,21 @@
+[
+    {"name": "position_title", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "position_industry", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "position_location", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "position_job_type", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "position_job_mid_code", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "position_industry_keyword_code", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "position_job_code_keyword_code", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "position_experience_level_code", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "position_experience_level_min", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "position_experience_level_max", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "position_required_education_level", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "keyword", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "salary", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "position_timestamp", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "position_date", "type": "TIMESTAMP", "mode": "REQUIRED"},
+    {"name": "expiration_timestamp", "type": "STRING", "mode": "REQUIRED"},
+    {"name": "expiration_date", "type": "TIMESTAMP", "mode": "REQUIRED"},
+    {"name": "read_cnt", "type": "INTEGER", "mode": "REQUIRED"},
+    {"name": "apply_cnt", "type": "INTEGER", "mode": "REQUIRED"}
+]
