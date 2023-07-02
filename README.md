@@ -1,8 +1,6 @@
 # Data_Industry_Trends_Visualization
 
 
-# DW를 이용한 대시보드 구축하기
-
 <img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/> <img src="https://img.shields.io/badge/slack-4A154B?style=flat&logo=slack&logoColor=white"/> <img src="https://img.shields.io/badge/googlecloud-4285F4?style=flat&logo=googlecloud&logoColor=white"/> <img src="https://img.shields.io/badge/powerbi-F2C811?style=flat&logo=powerbi&logoColor=white"/>
 
 ## 2팀 2조 채용관련 API를 이용한 데이터 직종 일자리 분석
@@ -16,9 +14,14 @@
     임형우 : DB 모델링, 데이터 분석, 대시보드 구축 및 자동화
 
 ### 사용 기술
-<img src="![image](https://github.com/pjw74/Data_Industry_Trends_Visualization/assets/89377440/7d5f4047-0e90-435a-9987-c78d241525a0)
-" width="300" height="300" />
-
+|분야|기술|
+|:---:|:---:|
+|언어|Python|
+|클라우드|docker, airflow, GCP|
+|라이브러리|apache-airflow, pandas|
+|협업툴|slack, JIRA, Github|
+|데이터 API|Saramin API, Google trend API|
+|대시보드|Looker|
 - - -
 ### 개요   
 사람인에서 재공하는 API와 다른 채용 정보들을 이용하여 현재 데브코스 자체의 의미와 목표인 취업 또는 일자리전망, 유망직종 여부 등의 정보와 추가로 검색량, 자격증 취득 현황 등을 연관관계를 파악할 수 있도록 시각화하여 제공한다.
