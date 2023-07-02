@@ -83,5 +83,4 @@ view: recruit {
     type: count_distinct
     sql: ${id} ;;
   }
-
 }
