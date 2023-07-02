@@ -156,5 +156,23 @@ Setting
     - count_of_month : 수집된 데이터 월간 분포 (전처리 이후)
     - count_of_year : 수집된 데이터 연간 분포 (전처리 이후)
 
+# ELT 과정
+
+## ELT flow
+1. GCS 내 적재되는 데이터 중 일부는 crontab으로 적재되고 일부는 1년치 데이터로 전재
+2. GCS -> Bigquery 과정에서 staging 테이블을 생성해 다음과 같은 task grid 작성
+![image](https://github.com/pjw74/Data_Industry_Trends_Visualization/assets/89377440/e470d6b2-941c-4831-b933-d65987996cf5)
+3. 해당 task를 통해 2차 검증을 거쳐 Bigquery-external로 적재되는 데이터 체크
+
+### 기존 cloud function 활용한 schedule -> schedule_interval 처리
+### GCSToBigQueryOperator, BigQueryOperator, BigQueryCheckOperator 등 활용해 data flow 생성 및 validation 진행
+### create, check task 실행 시 sql문으로 validation
+### ELT 결과 알림
+- slack webhook token 활용해 각 태스크 별 성공/실패 여부 확인
+- 매 3시간 마다 checking 하여 작업 확인
+
+
+
+
 - - -
 # 대시보드
