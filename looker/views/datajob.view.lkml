@@ -81,7 +81,7 @@ view: datajob {
 
   measure: count_distinct {
     type: count_distinct
-    drill_fields: [id]
+    sql: ${id} ;;
   }
 
 }
