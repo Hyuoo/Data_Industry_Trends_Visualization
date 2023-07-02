@@ -7,11 +7,11 @@
 
 ### 팀원 및 역할
 
-    김창민 : 데이터 GCS 적재 및 자동화
-    박경모 : 데이터 GCS 적재 및 자동화
-    박정우 : 데이터 GCS 적재 및 자동화
-    김태준 : GCP 환경 구축 및 자동화 (GCS, workflow, Bigquery)
-    임형우 : DB 모델링, 데이터 분석, 대시보드 구축 및 자동화
+    김창민 : 데이터 GCS 적재 및 자동화 (airflow -dag 활용)
+    박경모 : 데이터 GCS 적재 및 자동화 (airflow -dag 활용)
+    박정우 : 데이터 GCS 적재 및 자동화 (airflow -dag 활용)
+    김태준 : GCP 환경 구축 및 자동화 (GCS, workflow, Bigquery) (airflow -dag 활용)
+    임형우 : DB 모델링, 데이터 분석, 대시보드 구축 및 자동화 (airflow -dag 활용)
 
 ### 사용 기술
 |분야|기술|
