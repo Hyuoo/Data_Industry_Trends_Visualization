@@ -76,12 +76,12 @@ view: recruit {
 
   measure: count {
     type: count
-    drill_fields: [id, exp_name, location_name, job_name]
+    drill_fields: [id]
   }
 
   measure: count_tmp {
     type: count_distinct
-    drill_fields: [id]
+    sql: ${id} ;;
   }
 
 }
