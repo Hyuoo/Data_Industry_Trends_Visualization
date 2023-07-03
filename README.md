@@ -173,11 +173,10 @@ Setting
 # ELT 과정
 
 ## ELT flow
-1. GCS 내 적재되는 데이터 중 일부는 crontab으로 적재되고 일부는 1년치 데이터로 적재
+1. GCS 내 적재되는 데이터 중 일부는 스케줄링 되어 매번 적재되고 일부는 데이터셋 전체로 적재
 2. GCS -> Bigquery 과정에서 staging 테이블을 생성해 다음과 같은 task grid 작성
 ![image](https://github.com/pjw74/Data_Industry_Trends_Visualization/assets/89377440/e470d6b2-941c-4831-b933-d65987996cf5)
 3. 해당 task (check_table명)을 통해 query로 2차 검증을 거쳐 Bigquery-external로 적재되는 데이터 체크
-
 
 - 기존 cloud function 활용한 schedule -> schedule_interval 처리
 - GCSToBigQueryOperator, BigQueryOperator, BigQueryCheckOperator 등 활용해 data flow 생성 및 validation 진행
