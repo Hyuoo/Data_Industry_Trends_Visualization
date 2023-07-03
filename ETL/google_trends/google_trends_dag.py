@@ -40,6 +40,7 @@ dag = DAG(
 collect_data_task = PythonOperator(
     task_id='collect_data',
     python_callable=collect_data,
+    # 요청 시간, 현재 시간 추가
     op_args=['Google Trend', 'my_req_time', 'my_hour'],
     provide_context=True,
     dag=dag,

@@ -16,7 +16,7 @@ from airflow.hooks.base import BaseHook
 from google.oauth2 import service_account
 import json
 import tempfile
-from slack_jw import send_slack_notification, send_slack_error_notification
+from slack.slack_jw import send_slack_notification, send_slack_error_notification
 from requests.exceptions import RequestException
 
 # 로거 설정
@@ -35,7 +35,7 @@ file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 df_list = []
-search_start_date = "2018-05-01"
+search_start_date = "2018-05-01" # 데이터 수집 시작일
 
 cnt = 0
 
@@ -58,7 +58,6 @@ def build_payload_and_retry(pytrends, keyword, start_date):
     if i == MAX_TRIES - 1:
         raise ValueError("Failed to build payload after {MAX_TRIES} tries")
 
-# def collect_data(ti, **kwargs):
 def collect_data(request_str, req_time, hour, **kwargs):
     """ 데이터 수집 함수 """
     global cnt
@@ -88,9 +87,6 @@ def collect_data(request_str, req_time, hour, **kwargs):
             ['Kubernetes'],
             # 추후 추가 키워드 ['Microsoft Azure', 'dbt', 'BigQuery', 'Cassandra', 'Airflow',]
         ]
-
-
-
 
         keyword_translation = {
             '정보처리': 'info',
@@ -144,29 +140,22 @@ def collect_data(request_str, req_time, hour, **kwargs):
         logger.error(f"Failed to fetch data for '{request_str}': {e}")
         send_slack_error_notification(f"Failed to fetch data for '{request_str}': {e}")
 
-
-
-# def merge_and_upload_data(ti, project_id, bucket_name, **kwargs):
 def merge_and_upload_data(bucket_name, gcp_conn_id, **kwargs):
     """ 전체 결과를 만들기 위한 함수 """
-
 
     ti = kwargs['ti']
     # collect_data의 결과를 XCom에서 가져옴
     json_df_list = ti.xcom_pull(task_ids='collect_data', key='collected_data')
+
     # JSON 문자열을 다시 데이터 프레임으로 변환
     df_list = [pd.read_json(json_df, orient="split") for json_df in json_df_list]
 
-    # project_id 및 bucket_name 값 확인
-    logger.info(f"Project ID: {gcp_conn_id}")
-    logger.info(f"Bucket Name: {bucket_name}")
-
     try:
 
-        # DataFrame 리스트를 생성하여 데이터 프레임에 추가하기
+        # DataFrame 리스트를 생성하여 데이터 프레임에 추가
         merged_df = pd.concat(df_list, axis=1)
 
-        # CSV 형식의 문자열로 저장하기
+        # CSV 형식의 문자열로 저장
         csv_string = merged_df.to_csv(index=False)
 
         # KST 타임존으로 변경
@@ -176,14 +165,14 @@ def merge_and_upload_data(bucket_name, gcp_conn_id, **kwargs):
         directory_blob = "google_trend/"
         blob_name = f"{directory_blob}result_{now}.csv"
 
-        # BaseHook을 사용하여 connection 정보를 가져옵니다.
+        # BaseHook을 사용하여 connection 정보를 가져옴
         gcp_connection = BaseHook.get_connection("gcp_connection")
 
-        # Connection에서 제공한 extra 필드에서 JSON 키 파일 내용을 가져옵니다.
+        # Connection에서 제공한 extra 필드에서 JSON 키 파일 내용을 가져옴
         extra = json.loads(gcp_connection.extra)
         keyfile_dict = json.loads(extra['keyfile_dict']) # JSON 문자열을 사전 딕셔너리로 변환
 
-        # JSON 키 파일 내용으로부터 인증 정보를 생성합니다.
+        # JSON 키 파일 내용으로부터 인증 정보를 생성
         credentials = service_account.Credentials.from_service_account_info(keyfile_dict)
         logger.info(f"credentials: {credentials}")
 
@@ -191,7 +180,8 @@ def merge_and_upload_data(bucket_name, gcp_conn_id, **kwargs):
             temp_file.write(csv_string)
             temp_file.flush()
 
-            storage_client = storage.Client(credentials=credentials)  # assumes you're App Default Credentials.
+            # Credentials
+            storage_client = storage.Client(credentials=credentials)
             bucket = storage_client.get_bucket(bucket_name)
             blob = bucket.blob(blob_name)
 
