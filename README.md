@@ -56,6 +56,10 @@
 # Workflow
 <img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/5a4b4e90-767a-43dc-94cb-57e90287efcf" width="800" height="500" />
 
+![image](https://github.com/pjw74/Data_Industry_Trends_Visualization/assets/89377440/9a2d7791-3767-472e-a838-ff042d69c2ad)
+
+
+
 # ETL 과정
 
 ## ETL 서버 생성(Google Compute Engine)
