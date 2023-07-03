@@ -115,22 +115,22 @@ Setting
 
 ## 구글 트렌드 API ETL
 
-DAG
-API에서 추출한 원시데이터를 Xcom push 후, 완료 task로부터 trigger,  \
-BigQuery에 Xcom pull하여 tempfile에 저장 후 CSV형태로 변형, 
-적재하는 2개의 task로 나누어 ETL 구현
+### DAG
 
-Cloud to Cloud DAG graph
+- API에서 추출한 원시데이터를 Xcom push 후, 완료 task로부터 trigger,  \
+- BigQuery에 Xcom pull하여 tempfile에 저장 후 CSV형태로 변형, 적재하는 2개의 task로 나누어 ETL 구현
+
+### DAG graph
 
 ![3차플젝_그래프](https://github.com/pjw74/Data_Industry_Trends_Visualization/assets/70009161/383c98c5-851a-4bf6-a131-db3949a0d3a3)
 
-적재 완료 알람이 구현된 부분 \
-ETL 결과 알림 \
-Slack web hook을 이용해 알림기능 구현 
+- 적재 완료 알람이 구현된 부분 \
+- ETL 결과 알림 \
+- Slack web hook을 이용해 알림기능 구현 
 
 ![3차플젝_알람](https://github.com/pjw74/Data_Industry_Trends_Visualization/assets/70009161/d64253b0-3316-43c3-91c2-e00951d1cf3d)
 
-수집에 실패한 키워드 알람
+- 수집에 실패한 키워드 알람
 
 - - - 
 # 테이블 모델링
