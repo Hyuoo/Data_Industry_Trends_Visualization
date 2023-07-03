@@ -141,10 +141,10 @@ Setting
 # 테이블 모델링
 <left>![img1](/query/elt_flow.png)</left>
 
-- **external** : 검증 및 스키마 변경 사항 등 반영한 외부 테이블 스키마
+- **staging** : 검증 및 스키마 변경 사항 등 반영한 외부 테이블 스키마
     (csv파일)
     - recruit : csv로 저장된 API 응답 (일정 주기로 스케줄링 되어있음.)
-    - recruit : csv로 저장된 구글 트렌드 API 응답 (일정 주기로 스케줄링 되어있고 schema 변경이 자주 일어남)
+    - google_trend : csv로 저장된 구글 트렌드 API 응답 (일정 주기로 스케줄링 되어있고 schema 변경이 자주 일어남)
 
 - **external** : 에러 사항 수정한 외부 테이블 스키마   
     (csv파일)
@@ -154,22 +154,17 @@ Setting
 
 - **meta** : 외부테이블 값에 대한 메타데이터   
     (API명세 내용)
-    - education : 채용 학력코드 상세
     - experiences : 채용 경력코드 상세
     - industries : 채용 산업코드 상세 (소분류)
     - industry_categories : 채용 산업코드 상세 (대분류)
     - job_codes : 채용 키워드
     - location : 채용 지역 상세
 
-- **raw_data** : 외부 데이터에서 정제/전처리 한 데이터   
-    (external.recruit_table로부터 레코드별로 id부여 후 정규화)
-    - certification : 자격증 취득 현황 테이블
-    - experiences : 경력코드-경력값 테이블
+- **core** : external테이블에서 Looker용 테이블로 처리된 테이블   
+    - recruit : 전체 채용 정보
+    - datajob : 데이터직종 채용 정보
     - google_trend : 구글 트렌드 검색량 테이블
-    - industries : 산업코드-대분류-소분류 테이블
-    - job_doce_keywords : 키워드코드-키워드 테이블
-    - locations : 지역코드-전체지역-상세지역
-    - recruits : 공고명, 학력, 급여조건, 게시일자, 조회수, 지원수
+    - certification : 자격증 취득 현황 테이블
 
 
 # ELT 과정
