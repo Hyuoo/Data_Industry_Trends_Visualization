@@ -80,16 +80,37 @@ Setting
 - 스크립트 실패 / 데이터 적재 실패 / 인스턴스 다운 에 대해서 크게 3가지로 분류하고 해당 오류에 대한 예외처리 및 SLACK으로 알림 기능 구현
 
 ## 채용공고 API ETL
-- 실행 시간을 기록하는 파일을 서버에 적재
-    - 마지막 스크립트 실행 이후로 업로드된 IT, 개발, 데이터 분야의 채용공고를 수집
-    - 예외로 인한 코드 미실행, 특수한 상황으로 인해 이번 시도에 가져오지 못한 데이터 확보 목적
-<img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/d1958e75-e372-4bb9-b1fb-586c60c13161" width="400" height="150" />
+### DAG
+- API to Cloud, Cloud to Cloud DAG 구현
+    - 이전에 운영하던 클라우드 서버가 자원 문제로 인스턴스 종료되는 상황 발생
+        - 서버에 기록된 데이터, 코드 등 보존을 위해 Storage에 모든 내용을 적재하도록 함
+        - 이전에 API를 불러온 시점부터 이후의 데이터를 모두 가져올 수 있는 구조의 DAG 작성
+        - 서버에 부하가 걸리지 않게 작업한 내용은 서버 인스턴스에 남기지 않고 API에서 받아온 정보를 바로 Cloud로, Cloud의 정보를 가공한 후 Cloud로 적재하는 DAG 생성
+    - 데이터 구조 변경에 반응하기 위한 데이터 추출 코드 수정
+        - API를 사용하고 있는 데이터 소스에서 제공하는 데이터의 형태가 변하는 경우를 대비
+        - API에서 추출한 원시데이터를 바로 스토리지에 적재하는 DAG, 해당 DAG의 완료 task로부터 trigger를 받아 BigQuery에 적재하기 명확한 CSV형태로 변환하는 DAG 2개로 나누어 ETL 과정 구현
+### API to Cloud DAG graph
+<img src="https://github.com/pjw74/Data_Industry_Trends_Visualization/assets/131341085/7028c591-84f0-4926-89f1-68f05c0f64aa" width="800" height="150" />
+
+- 한달간 스케줄링 결과 한 시간 동안 채용공고가 올라오지 않는 시간 다수 확인
+    - API 호출 시 데이터가 있는지 여부를 우선 확인
+    - 없는 경우 slack으로 바로 알림을 보내고 종료
+    - 있는 경우 json 형태로 적재
+        - 적재 후 json을 csv로 변환하는 DAG를 trigger
+
+### Cloud to Cloud DAG graph
+<img src="https://github.com/pjw74/Data_Industry_Trends_Visualization/assets/131341085/c82c798b-298a-4f1f-99c3-226adb2126ff" width="600" height="100" />
+
+- 혼자 동작하지 않고 API to Cloud DAG의 trigger를 받아 동작
+- json 데이터를 csv로 변환해서 GCS상에 적재
+- 적재 완료 알람이 구현된 부분
 
 ### ETL 결과 알림
-- Slack inline-hook을 이용해 구현
-- 야간시간대에 모집 공고가 거의 없음을 확인
-- 지속적인 모니터링으로 업로드 패턴이 정립되면 스케줄링 시간대를 개선하여 비용 측면을 개선 가능할 것
-<img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/b539e9bc-9a8b-455e-bb87-6db72d3a8ba6" width="350" height="200"/>  <img src="https://github.com/pjw74/GCP-Job-Board/assets/131341085/7c9474d4-7570-4650-a3a7-f4d275dd5eca" width="350" height="200" />
+- Slack web hook을 이용해 알림기능 구현
+- callback을 통해 실행 결과를 확인
+    - success callback : 추출한 공고가 있는지, 몇개의 공고가 적재되었는지 알림
+    - failure callback : 각 task마다 실행 과정에서 에러가 발생했을 때 어떤 부분에 문제가 생겼는지 알림
+<img src="https://github.com/pjw74/Data_Industry_Trends_Visualization/assets/131341085/568bccb0-45b9-40ed-8c5a-76b50fef7743" width="500" height="300"/>
 
 
 ## 구글 트렌드 API ETL
