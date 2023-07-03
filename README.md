@@ -139,7 +139,7 @@ Setting
 
 - - - 
 # 테이블 모델링
-<left>![img1](/query/elt_flow.png)</left>
+![dataflow](/img/elt_flow2.png)
 
 - **staging** : 검증 및 스키마 변경 사항 등 반영한 외부 테이블 스키마
     (csv파일)
@@ -188,4 +188,4 @@ Setting
 - - -
 # 대시보드
 
-![dashboard](/recruit_2023-07-03T0943_1.png)
+![dashboard](/img/recruit_2023-07-03T0943_1.png)
