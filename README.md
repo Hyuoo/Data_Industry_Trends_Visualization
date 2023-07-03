@@ -182,7 +182,7 @@ Setting
 - GCSToBigQueryOperator, BigQueryOperator, BigQueryCheckOperator 등 활용해 data flow 생성 및 validation 진행
 - create, check task 실행 시 sql문으로 validation
 ### ELT 결과 알림
-- slack webhook token 활용해 각 태스크 별 성공/실패 여부 확인
+- slack webhook token, email 활용해 각 태스크 별 성공/실패 여부 확인
 - 매 3시간 마다 checking 하여 작업 확인
 
 
