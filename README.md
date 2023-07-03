@@ -189,3 +189,5 @@ Setting
 
 - - -
 # 대시보드
+
+![dashboard](/recruit_2023-07-03T0943_1.png)
