@@ -168,37 +168,6 @@ Setting
     - locations : 지역코드-전체지역-상세지역
     - recruits : 공고명, 학력, 급여조건, 게시일자, 조회수, 지원수
 
-- **analystic** : 분석용 요약 테이블   
-    (특정 태그에 맞는 직종별 id단일 컬럼으로 구성된 조인테이블로써 구성)
-    - da_ids : 데이터 분석가 id목록
-    - datajob_ids : de, da, ds 세 직종을 합치고 중복 제거한 id목록
-    - de_ids : 데이터 엔지니어 id목록
-    - ds_ids : 데이터 사이언티스트 id목록
-    - embedded_ids : 임베디드 개발자 id목록
-    - security_ids : 보안계열 id목록
-    - web_back_ids : 웹 백엔드 id목록
-    - web_front_ids : 웹 프론트엔드 id목록
-
-- **visual_tables** : 대시보드 연동 테이블
-    - all_count : 전체 recruit 데이터레코드 갯수
-    - area_ratio : 전체지역 별 채용 비율
-    - area_ratio_seoul : 서울 지역 내 채용 비율
-    - certifications : 연간 자격증 응시자/합격자/합격률
-    - data_job_detail_ratio : 데이터직종 내 상세 비율
-    - data_job_ratio : 전체 채용 중 데이터직종 비율
-    - dev_industry_datajobs : 개발자 채용 산업 계 (대분류), (it전체, de, da, ds 별)
-    - dev_industry_first_detail : 위 대분류에서 최상위 산업분야의 상세 내용 (it전체, de, da, ds 별)
-    - google_trends : 주간 구글 트렌드 검색량
-    - recruit_for_exp : 위 analystic에서 분류된 직종 별 전체, 경력, 신입무관, 신입 채용 수
-    - top_datajob_keywords : 데이터직종 채용 키워드 TOP30 (de, da, ds 별)
-    - top_keywords : IT전체 채용 키워드 TOP50
-
-- **adhoc** : 임시 스키마   
-    (쓰이진 않으나 참고용으로 가능하기에 남겨둠)
-    - area_ratio_gyeonggi : 경기도 지역 채용 수
-    - area_ratio_gyeonggi_sum : 경기도 지역 채용 수 ('구'별 구분 없이)
-    - count_of_month : 수집된 데이터 월간 분포 (전처리 이후)
-    - count_of_year : 수집된 데이터 연간 분포 (전처리 이후)
 
 # ELT 과정
 
