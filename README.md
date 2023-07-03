@@ -90,6 +90,16 @@ Setting
 
 ## 구글 트렌드 API ETL
 
+- Airflow
+- slack
+- 
+
+
+
+
+
+
+
 - - - 
 # 테이블 모델링
 <left>![img1](/query/elt_flow.png)</left>
