@@ -120,7 +120,7 @@ Setting
 ### DAG
 
 - API에서 추출한 원시데이터를 Xcom push 후, 완료 task로부터 trigger,  
-- BigQuery에 Xcom pull하여 tempfile에 저장 후 CSV형태로 변형, 적재하는 2개의 task로 나누어 ETL 구현
+- Xcom pull하여 tempfile에 저장 후 CSV형태로 변형 후 GCS에 적재하는 2개의 task로 나누어 ETL 구현
 
 ### DAG graph
 
