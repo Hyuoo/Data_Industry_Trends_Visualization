@@ -126,13 +126,16 @@ Setting
 
 ![3차플젝_그래프](https://github.com/pjw74/Data_Industry_Trends_Visualization/assets/70009161/383c98c5-851a-4bf6-a131-db3949a0d3a3)
 
-- 적재 완료 알람이 구현된 부분 
-- ETL 결과 알림 
+ 
+### ETL 결과 알림 
+
+- 적재 완료 알람이 구현된 부분
 - Slack web hook을 이용해 알림기능 구현 
+- 수집에 실패한 키워드 알람
 
 ![3차플젝_알람](https://github.com/pjw74/Data_Industry_Trends_Visualization/assets/70009161/d64253b0-3316-43c3-91c2-e00951d1cf3d)
 
-- 수집에 실패한 키워드 알람
+
 
 - - - 
 # 테이블 모델링
