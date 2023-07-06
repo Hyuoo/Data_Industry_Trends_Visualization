@@ -192,4 +192,4 @@ Setting
 
 ## 추가 제작한 검색용 대시보드
 
-![dashboard2](./img/recruit_search 2023-07-06T1517_1.png)
+![dashboard2](./img/recruit_search_2023-07-06T1517_1.png)
