@@ -189,3 +189,7 @@ Setting
 # 대시보드
 
 ![dashboard](./img/recruit_2023-07-03T0943_1.png)
+
+## 추가 제작한 검색용 대시보드
+
+![dashboard2](./img/recruit_search 2023-07-06T1517_1.png)
