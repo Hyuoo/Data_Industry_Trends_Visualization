@@ -145,6 +145,7 @@ Setting
     (csv파일)
     - recruit : csv로 저장된 API 응답 (일정 주기로 스케줄링 되어있음.)
     - google_trend : csv로 저장된 구글 트렌드 API 응답 (일정 주기로 스케줄링 되어있고 schema 변경이 자주 일어남)
+    - certification : csv로 저장된 자격증 응시 정보
 
 - **external** : 에러 사항 수정한 외부 테이블 스키마   
     (csv파일)
