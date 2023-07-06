@@ -148,7 +148,6 @@ Setting
     - certification : csv로 저장된 자격증 응시 데이터
 
 - **external** : 에러 사항 수정한 외부 테이블 스키마   
-    (csv파일)
     - recruit_table : csv로 저장된 API응답
     - google_trend : csv로 저장된 구글 트렌드 API응답
     - certification : csv로 저장된 자격증 응시 데이터
