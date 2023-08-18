@@ -3,6 +3,8 @@
 
 <img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/> <img src="https://img.shields.io/badge/slack-4A154B?style=flat&logo=slack&logoColor=white"/> <img src="https://img.shields.io/badge/googlecloud-4285F4?style=flat&logo=googlecloud&logoColor=white"/> <img src="https://img.shields.io/badge/python-3776AB?style=flat&logo=python&logoColor=white">
 <img src="https://img.shields.io/badge/JIRA-4285F4?style=flat&logo=googlecloud&logoColor=white"/> <img src="https://img.shields.io/badge/airflow-4285F4?style=flat&logo=googlecloud&logoColor=white"/>
+
+### [[ 지난 프로젝트 고도화 ]](https://github.com/Hyuoo/kdt-project2-GCP-recruit-dashboard)
 ## 2팀 2조 채용관련 API를 이용한 데이터 직종 일자리 분석
 
 ### 팀원 및 역할
